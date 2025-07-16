@@ -17,7 +17,7 @@ export default function App() {
 
   const handleAnalyzeEssay = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/analyze_essay", {
+      const response = await fetch("/api/analyze_essay", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ essay }),

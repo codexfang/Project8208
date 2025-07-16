@@ -1,5 +1,6 @@
-import { useState } from "react";
 import './App.css';
+
+import { useState } from "react";
 
 export default function App() {
   const [essay, setEssay] = useState("");
@@ -30,7 +31,7 @@ export default function App() {
 
   const handlePredict = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/predict_admission", {
+      const response = await fetch("/api/analyze_essay", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(stats),
@@ -108,7 +109,7 @@ export default function App() {
               onClick={handlePredict}
               className="bg-indigo-600 text-white px-6 py-3 mt-2 rounded-lg shadow-md hover:bg-indigo-700 transition-all"
             >
-              Predict Admission Chance
+            Predict Admission Chance
             </button>
 
             {likelihood !== null && (
@@ -141,7 +142,7 @@ export default function App() {
               onClick={handleAnalyzeEssay}
               className="bg-indigo-600 text-white px-6 py-3 mt-2 rounded-lg shadow-md hover:bg-indigo-700 transition-all"
             >
-              Analyze Essay
+            Analyze Essay
             </button>
             {essayFeedback && (
               <div className="mt-4 bg-indigo-50 p-4 rounded-lg border border-indigo-300">
